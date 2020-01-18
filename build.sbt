@@ -142,8 +142,7 @@ lazy val robot = (project in file("."))
     dependencyOverrides ++= {
       Seq(
         "com.fasterxml.jackson.core" % "jackson-annotations" % "2.9.8",
-        "org.slf4j" % "slf4j-api" % "1.7.28",
-        "org.scala-lang.modules" % "scala-java8-compat_2.12" % "0.9.0"
+        "org.slf4j" % "slf4j-api" % "1.7.28"
       )
     }
   )
