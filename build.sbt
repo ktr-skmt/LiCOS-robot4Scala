@@ -6,7 +6,7 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 
 coverageEnabled := true
 
-lazy val javaVersion: String = "1.8"
+lazy val javaVersion: String = "8"
 
 lazy val wartremoverSettings = Seq(
   wartremoverWarnings in (Compile, compile) ++= Warts.allBut(Wart.Throw)
@@ -31,7 +31,7 @@ lazy val commonSettings = Seq(
     "-unchecked",
     "-Xlint",
     "-Ypartial-unification",
-    s"-target:jvm-$javaVersion"
+    s"-target:jvm-1.$javaVersion"
   )
 } ++ {
   javacOptions ++= Seq(
@@ -103,7 +103,7 @@ lazy val robot = (project in file("."))
   )
   .settings(
     isSnapshot := true,
-    version := "0.1.0",
+    version := "0.0.1",
     name := robotLibraryName,
     publishMavenStyle := true,
     publishArtifact in Test := false,
@@ -122,9 +122,8 @@ lazy val robot = (project in file("."))
     libraryDependencies ++= {
       Seq(
         guice exclude ("com.google.guava", "guava"),
-        "online.licos" %% "licos-json4scala" % "0.1.0",
+        "online.licos" %% "licos-json4scala" % "0.3.0",
         "com.typesafe.play" %% "play-json" % "2.7.4",
-        "dev.morphia.morphia" % "core" % "1.5.8-SNAPSHOT",
         "org.projectlombok" % "lombok" % "1.18.10",
         "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test,
         "org.slf4j" % "slf4j-api" % "1.7.28" % "compile",
