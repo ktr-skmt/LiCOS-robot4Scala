@@ -91,7 +91,6 @@ lazy val robot = (project in file("."))
   .settings(commonSettings: _*)
   .settings(wartremoverSettings: _*)
   .settings(scalafmtSettings: _*)
-  .enablePlugins(PlayScala)
   .settings(
     scalacOptions in (Compile, doc) ++= Seq(
       "-groups",
@@ -122,14 +121,14 @@ lazy val robot = (project in file("."))
     libraryDependencies ++= {
       Seq(
         guice exclude ("com.google.guava", "guava"),
-        "online.licos" %% "licos-json4scala" % "0.3.0",
+        "online.licos" %% "licos-json4scala" % "0.3.1",
         "com.typesafe.play" %% "play-json" % "2.7.4",
-        "org.projectlombok" % "lombok" % "1.18.10",
         "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test,
         "org.slf4j" % "slf4j-api" % "1.7.28" % "compile",
         "ch.qos.logback" % "logback-classic" % "1.2.3",
         "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
         "org.typelevel" %% "cats-core" % "2.0.0",
+        "com.typesafe.akka" %% "akka-http" % "10.1.11",
         "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
         "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
       )
